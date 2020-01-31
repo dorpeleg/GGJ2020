@@ -38,6 +38,7 @@ public class TV : MonoBehaviour
 
     private void OnSwipeEvent(object source, GestureEventArgs e)
     {
+        Handheld.Vibrate();
         SceneCalculation(e.Direction);
     }
 
