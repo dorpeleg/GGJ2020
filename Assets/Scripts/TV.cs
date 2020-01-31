@@ -16,6 +16,7 @@ public class TV : MonoBehaviour
     private bool _gameOver = false;
     private MeshRenderer _meshRenderer;
     [SerializeField] private GameObject _pointLight;
+    [SerializeField] private GameObject _gameOverText;
     [SerializeField] private GameObject _screenNoise;
     [SerializeField] private GameObject _kafaToLeft, _kafaToRight, _kafaDownwards;
     SwipeDirection neededDirection;
@@ -50,21 +51,33 @@ public class TV : MonoBehaviour
             {
                 GameOver();
             }
-            if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                KafaToTheRight();
-                SceneCalculation(SwipeDirection.RIGHT);
-            }
-            else if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                KafaToTheLeft();
-                SceneCalculation(SwipeDirection.LEFT);
-            }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                KafaDownwards();
-                SceneCalculation(SwipeDirection.DOWN);
-            }
+#if UNITY_EDITOR && !UNITY_ANDROID
+            WindowsInput();
+#endif
+        }
+    }
+
+    private void AndroidInput()
+    {
+
+    }
+
+    private void WindowsInput()
+    {
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            KafaToTheRight();
+            SceneCalculation(SwipeDirection.RIGHT);
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            KafaToTheLeft();
+            SceneCalculation(SwipeDirection.LEFT);
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            KafaDownwards();
+            SceneCalculation(SwipeDirection.DOWN);
         }
     }
 
@@ -117,6 +130,7 @@ public class TV : MonoBehaviour
         Debug.LogError("You Lose!");
         _pointLight.SetActive(false);
         _gameOver = true;
+        _gameOverText.SetActive(true);
     }
 
     private void KafaToTheRight()
