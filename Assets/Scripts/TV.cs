@@ -6,55 +6,66 @@ public class TV : MonoBehaviour
 {
     [SerializeField] private Color[] _tvScenes = new Color[5];
     [SerializeField] private int _currentScene = 0;
-    [SerializeField] private float _nextFire = 0f;
-    [SerializeField] private float _fireRelevantTime = 3f;
-    [SerializeField] private float _fireMaximumTime = 3f;
-    [SerializeField] private float _fireRateMin = 1f;
-    [SerializeField] private float _fireRateMax = 5f;
-    [SerializeField] private float _fireRate = 3f;
+    private float _nextFire = 0f;
+    [SerializeField] private float _hitGoodThreshold = 3f;
+    [SerializeField] private float _hitLoseThreshold = 3f;
+    [SerializeField] private float _minTimeBetweenScenes = 1f;
+    [SerializeField] private float _maxTimeBetweenScenes = 5f;
+    [SerializeField] private float _timeBetweenScenes = 3f;
     private bool _calledNow = false;
     private bool _gameOver = false;
     private MeshRenderer _meshRenderer;
-    [SerializeField] private GameObject _pointLight;
     [SerializeField] private GameObject _gameOverText;
-    [SerializeField] private GameObject _screenNoise;
     [SerializeField] private GameObject _kafaToLeft, _kafaToRight, _kafaDownwards;
     SwipeDirection neededDirection;
-    //SwipeDirection neededDirection;
+    public UnityEngine.UI.Text Label;
+
+    private const string ShaderKeyword = "_Direction";
 
     void Start()
     {
-        if (_pointLight == null)
-            Debug.LogError("Light is null");
-        _pointLight.SetActive(false);
         _gameOver = false;
         _currentScene = 0;
         _nextFire = 0;
         _meshRenderer = GetComponent<MeshRenderer>();
+        GestureManager.Instance.SwipeEvent += OnSwipeEvent;
+    }
+
+    private void OnSwipeEvent(object source, GestureEventArgs e)
+    {
+        SceneCalculation(e.Direction);
     }
 
     void Update()
     {
         if(Time.time > _nextFire && !_gameOver)
         {
-            if(Time.time > _nextFire + _fireRelevantTime)
-                _screenNoise.SetActive(true);
+            if (Time.time > _nextFire + _hitGoodThreshold)
+            {
+                // TODO: bad hit
+            }
             if (!_calledNow)
             {
                 int directionNumber = Random.Range(2, 5);
                 neededDirection = (SwipeDirection)directionNumber;
                 Debug.Log("NOW! " + neededDirection.ToString());
-                _pointLight.SetActive(true);
+                Label.text = neededDirection.ToString();
+                _meshRenderer.material.SetFloat(ShaderKeyword, directionNumber);
                 _calledNow = true;
             }
-            if (Time.time > (_nextFire + _fireMaximumTime))
+            if (Time.time > (_nextFire + _hitLoseThreshold))
             {
                 GameOver();
             }
-#if UNITY_EDITOR && !UNITY_ANDROID
+#if UNITY_EDITOR
             WindowsInput();
 #endif
         }
+    }
+
+    private void OnDestroy()
+    {
+        GestureManager.Instance.SwipeEvent -= OnSwipeEvent;
     }
 
     private void AndroidInput()
@@ -87,7 +98,7 @@ public class TV : MonoBehaviour
         {
             if (_currentScene < _tvScenes.Length)
             {
-                if (Time.time <= _nextFire + _fireRelevantTime)
+                if (Time.time <= _nextFire + _hitGoodThreshold)
                 {
                     Debug.Log("current scene is " + _tvScenes[_currentScene]);
                 }
@@ -95,16 +106,19 @@ public class TV : MonoBehaviour
                 {
                     Debug.Log("It's too late! current scene is " + _tvScenes[_currentScene]);
                 }
-                _meshRenderer.material.color = _tvScenes[_currentScene];
-                _pointLight.SetActive(false);
+                //_meshRenderer.material.color = _tvScenes[_currentScene];
                 _currentScene++;
-                _fireRate = Random.Range(_fireRateMin, _fireRateMax);
-                _nextFire = Time.time + _fireRate;
+                _timeBetweenScenes = Random.Range(_minTimeBetweenScenes, _maxTimeBetweenScenes);
+                _nextFire = Time.time + _timeBetweenScenes;
                 _calledNow = false;
+                Debug.Log("NEW ROUND");
+                Label.text = "";
+                _meshRenderer.material.SetFloat(ShaderKeyword, 0);
             }
             else
             {
                 Debug.Log("You Won!");
+                _gameOver = true;
             }
         }
         else
@@ -112,7 +126,6 @@ public class TV : MonoBehaviour
             GameOver();
             Debug.Log("wrong move! " + direction.ToString());
         }
-        
     }
 
     private void KafaToTheLeft()
@@ -120,7 +133,6 @@ public class TV : MonoBehaviour
         if (!_kafaToLeft.activeSelf)
         {
             Debug.Log("kafa routine is called");
-            _screenNoise.SetActive(false);
             StartCoroutine(KafaAppear(_kafaToLeft));
         }  
     }
@@ -128,7 +140,6 @@ public class TV : MonoBehaviour
     private void GameOver()
     {
         Debug.LogError("You Lose!");
-        _pointLight.SetActive(false);
         _gameOver = true;
         _gameOverText.SetActive(true);
     }
@@ -138,7 +149,6 @@ public class TV : MonoBehaviour
         if (!_kafaToRight.activeSelf)
         {
             Debug.Log("kafa routine is called");
-            _screenNoise.SetActive(false);
             StartCoroutine(KafaAppear(_kafaToRight));
         }
     }
@@ -148,7 +158,6 @@ public class TV : MonoBehaviour
         if (!_kafaDownwards.activeSelf)
         {
             Debug.Log("kafa routine is called");
-            _screenNoise.SetActive(false);
             StartCoroutine(KafaAppear(_kafaDownwards));
         }
     }
