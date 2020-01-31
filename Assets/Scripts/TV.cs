@@ -1,23 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class TV : MonoBehaviour
 {
-    [SerializeField] private Color[] _tvScenes = new Color[5];
+    [SerializeField] private TVScenes _tvScenes;
     [SerializeField] private int _currentScene = 0;
-    private float _nextFire = 0f;
     [SerializeField] private float _hitGoodThreshold = 3f;
     [SerializeField] private float _hitLoseThreshold = 3f;
     [SerializeField] private float _minTimeBetweenScenes = 1f;
     [SerializeField] private float _maxTimeBetweenScenes = 5f;
     [SerializeField] private float _timeBetweenScenes = 3f;
+    [SerializeField] private GameObject _gameOverText;
+    [SerializeField] private GameObject _kafaToLeft, _kafaToRight, _kafaDownwards;
+    [SerializeField] private VideoPlayer _videoPlayer;
     private bool _calledNow = false;
     private bool _gameOver = false;
     private MeshRenderer _meshRenderer;
-    [SerializeField] private GameObject _gameOverText;
-    [SerializeField] private GameObject _kafaToLeft, _kafaToRight, _kafaDownwards;
-    SwipeDirection neededDirection;
+    private float _nextFire = 0f;
+    private SwipeDirection _neededDirection;
+
+    // TEMP
     public UnityEngine.UI.Text Label;
 
     private const string ShaderKeyword = "_Direction";
@@ -47,9 +51,9 @@ public class TV : MonoBehaviour
             if (!_calledNow)
             {
                 int directionNumber = Random.Range(2, 5);
-                neededDirection = (SwipeDirection)directionNumber;
-                Debug.Log("NOW! " + neededDirection.ToString());
-                Label.text = neededDirection.ToString();
+                _neededDirection = (SwipeDirection)directionNumber;
+                Debug.Log("NOW! " + _neededDirection.ToString());
+                Label.text = _neededDirection.ToString();
                 _meshRenderer.material.SetFloat(ShaderKeyword, directionNumber);
                 _calledNow = true;
             }
@@ -94,19 +98,19 @@ public class TV : MonoBehaviour
 
     private void SceneCalculation(SwipeDirection direction)
     {
-        if(neededDirection == direction)
+        if(_neededDirection == direction)
         {
-            if (_currentScene < _tvScenes.Length)
+            if (_currentScene < _tvScenes.Scenes.Count)
             {
                 if (Time.time <= _nextFire + _hitGoodThreshold)
                 {
-                    Debug.Log("current scene is " + _tvScenes[_currentScene]);
+                    Debug.Log("current scene is " + _tvScenes.Scenes[_currentScene]);
                 }
                 else
                 {
-                    Debug.Log("It's too late! current scene is " + _tvScenes[_currentScene]);
+                    Debug.Log("It's too late! current scene is " + _tvScenes.Scenes[_currentScene]);
                 }
-                //_meshRenderer.material.color = _tvScenes[_currentScene];
+                _videoPlayer.clip = _tvScenes.Scenes[_currentScene].VideoFile;
                 _currentScene++;
                 _timeBetweenScenes = Random.Range(_minTimeBetweenScenes, _maxTimeBetweenScenes);
                 _nextFire = Time.time + _timeBetweenScenes;

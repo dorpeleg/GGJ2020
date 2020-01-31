@@ -812,12 +812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1819edbcd1181d0489374d9fa74896b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tvScenes:
-  - {r: 1, g: 0, b: 0, a: 0}
-  - {r: 0.08395338, g: 1, b: 0, a: 0}
-  - {r: 0, g: 0.18899345, b: 1, a: 6.6e-43}
-  - {r: 1, g: 0.9812064, b: 0, a: 0}
-  - {r: -1.7246493e-10, g: 6.6e-43, b: -1.7246538e-10, a: 6.6e-43}
+  _tvScenes: {fileID: 11400000, guid: 5c1a02a9656d91a429651a34251c172f, type: 2}
   _currentScene: 0
   _hitGoodThreshold: 3
   _hitLoseThreshold: 3
@@ -828,6 +823,7 @@ MonoBehaviour:
   _kafaToLeft: {fileID: 759801030}
   _kafaToRight: {fileID: 61805477}
   _kafaDownwards: {fileID: 1408831372}
+  _videoPlayer: {fileID: 622784280}
   Label: {fileID: 562295787}
 --- !u!23 &1587191853
 MeshRenderer:
