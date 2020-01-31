@@ -103,15 +103,15 @@ Shader "Custom/TVStatic"
                  fixed4 color = tex2D(_MainTex, i.uv);
                  fixed4 snow = fixed4(stat.xyz, 1.0);
 
-                 if (i.uv.x > 0.75 && _Direction == 4)
+                 if (/*i.uv.x > 0.75 &&*/ _Direction == 4)  // right
+                 {
+                     return snow*(i.uv.x * color);
+                 }
+                 if (i.uv.x < 0.25 && _Direction == 3)  // left
                  {
                      return snow;
                  }
-                 if (i.uv.x < 0.25 && _Direction == 3)
-                 {
-                     return snow;
-                 }
-                 if (i.uv.y < 0.25 && _Direction == 2)
+                 if (i.uv.y < 0.25 && _Direction == 2)  // down
                  {
                      return snow;
                  }
