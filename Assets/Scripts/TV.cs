@@ -49,6 +49,12 @@ public class TV : MonoBehaviour
 
     void Update()
     {
+        //if(Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    if (_kafaToLeft.GetComponent<Animation>() != null)
+        //        _kafaToLeft.GetComponent<Animation>().Play("KafaToLeftAnimation");
+        //}
+
         if(Time.time > _nextFire && !_gameOver)
         {
             if (Time.time > _nextFire + _hitGoodThreshold)
@@ -173,9 +179,13 @@ public class TV : MonoBehaviour
         }
     }
 
+    
+
     IEnumerator KafaAppear(GameObject kafaGraphic)
     {
         kafaGraphic.SetActive(true);
+        if (kafaGraphic.GetComponent<Animator>() != null)
+            kafaGraphic.GetComponent<Animator>().Play("Kafa");
         yield return new WaitForSeconds(0.3f);
         kafaGraphic.SetActive(false);
     }

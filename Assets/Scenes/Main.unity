@@ -127,6 +127,41 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1469067672216768266}
   m_PrefabAsset: {fileID: 0}
+--- !u!111 &61805478
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61805477}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: cd7863897f8cb1c4a9cd97d39e15170f, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: cd7863897f8cb1c4a9cd97d39e15170f, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!95 &61805479
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61805477}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7550b1cec0fb8a947b4754cd505e9843, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &104713464
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,6 +571,25 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4764807284604658434}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &759801031
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759801030}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cc771ab5849ec9d4fb2ba8e0d469dc80, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &958068175
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,6 +1119,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3655972350216915714, guid: c3aadaf9fefc73c41a8881f4059d4fdf,
+        type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4764807284155238340, guid: c3aadaf9fefc73c41a8881f4059d4fdf,
         type: 3}
       propertyPath: m_Name
