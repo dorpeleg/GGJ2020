@@ -110,15 +110,15 @@ Shader "Custom/TVStatic1"
 
                      if (i.uv.x > 0.5 && _Direction == 4)  // right
                      {
-                         return fixed4(stat.xyz, i.uv.x-0.4);
+                         return fixed4(stat.xyz, i.uv.x - 0.4);
                      }
                      if (i.uv.x < 0.5 && _Direction == 3)  // left
                      {
-                         return fixed4(stat.xyz, i.uv.x - 0.4);
+                         return fixed4(stat.xyz, 0.6-i.uv.x);
                      }
                      if (i.uv.y < 0.5 && _Direction == 2)  // down
                      {
-                         return fixed4(stat.xyz, i.uv.y - 0.4);
+                         return fixed4(stat.xyz, 0.6-i.uv.y);
                      }
 
                      return 0;

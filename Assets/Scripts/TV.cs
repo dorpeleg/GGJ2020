@@ -16,16 +16,12 @@ public class TV : MonoBehaviour
     [SerializeField] private GameObject _kafaToLeft, _kafaToRight, _kafaDownwards;
     [SerializeField] private VideoPlayer _videoPlayer;
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private MeshRenderer _snowMeshRenderer;
     private bool _calledNow = false;
     private bool _gameOver = false;
-    private MeshRenderer _meshRenderer;
     private float _nextFire = 0f;
     private SwipeDirection _neededDirection;
     private AudioSource _audio;
-    //Vector3 _kafaToLeftPosition, _kafaToRightPosition, _kafaDownwardsPosition;
-    //Vector3 _kafaToLeftEndposition = new Vector3(5.74f, 2.489f, 0);
-    //Vector3 _kafaToRightEndposition = new Vector3(-6.299f, 2.489f, 0);
-    //Vector3 _kafaDownwardsEndposition = new Vector3(-1.27f, 4.08f, 0);
 
     // TEMP
     public UnityEngine.UI.Text Label;
@@ -38,10 +34,6 @@ public class TV : MonoBehaviour
         _gameOver = false;
         _currentScene = 0;
         _nextFire = 0;
-        _meshRenderer = GetComponent<MeshRenderer>();
-        //_kafaToLeftPosition = _kafaToLeft.transform.position;
-        //_kafaToRightPosition = _kafaToRight.transform.position;
-        //_kafaDownwardsPosition = _kafaDownwards.transform.position;
         GestureManager.Instance.SwipeEvent += OnSwipeEvent;
     }
 
@@ -53,12 +45,6 @@ public class TV : MonoBehaviour
 
     void Update()
     {
-        //if(Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    if (_kafaToLeft.GetComponent<Animation>() != null)
-        //        _kafaToLeft.GetComponent<Animation>().Play("KafaToLeftAnimation");
-        //}
-
         if(Time.time > _nextFire && !_gameOver)
         {
             if (Time.time > _nextFire + _hitGoodThreshold)
@@ -71,7 +57,7 @@ public class TV : MonoBehaviour
                 _neededDirection = (SwipeDirection)directionNumber;
                 Debug.Log("NOW! " + _neededDirection.ToString());
                 Label.text = _neededDirection.ToString();
-                _meshRenderer.material.SetFloat(ShaderKeyword, directionNumber);
+                _snowMeshRenderer.material.SetFloat(ShaderKeyword, directionNumber);
                 _calledNow = true;
             }
             if (Time.time > (_nextFire + _hitLoseThreshold))
@@ -128,7 +114,7 @@ public class TV : MonoBehaviour
                 _calledNow = false;
                 Debug.Log("NEW ROUND");
                 Label.text = "";
-                _meshRenderer.material.SetFloat(ShaderKeyword, 0);
+                _snowMeshRenderer.material.SetFloat(ShaderKeyword, 0);
             }
             else
             {
@@ -149,6 +135,7 @@ public class TV : MonoBehaviour
     {
         _currentScene++;
         _videoPlayer.clip = _tvScenes.Scenes[_currentScene].VideoFile;
+        _audioSource.Stop();
         _audioSource.PlayOneShot(_tvScenes.Scenes[_currentScene].AudioFile);
     }
 
@@ -190,13 +177,14 @@ public class TV : MonoBehaviour
     {
         _audio.Play();
     }
-    
 
     IEnumerator KafaAppear(GameObject kafaGraphic)
     {
         kafaGraphic.SetActive(true);
         if (kafaGraphic.GetComponent<Animator>() != null)
+        {
             kafaGraphic.GetComponent<Animator>().Play("Kafa");
+        }
         yield return new WaitForSeconds(0.45f);
         kafaGraphic.SetActive(false);
     }
