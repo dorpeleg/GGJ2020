@@ -20,6 +20,10 @@ public class TV : MonoBehaviour
     private MeshRenderer _meshRenderer;
     private float _nextFire = 0f;
     private SwipeDirection _neededDirection;
+    //Vector3 _kafaToLeftPosition, _kafaToRightPosition, _kafaDownwardsPosition;
+    //Vector3 _kafaToLeftEndposition = new Vector3(5.74f, 2.489f, 0);
+    //Vector3 _kafaToRightEndposition = new Vector3(-6.299f, 2.489f, 0);
+    //Vector3 _kafaDownwardsEndposition = new Vector3(-1.27f, 4.08f, 0);
 
     // TEMP
     public UnityEngine.UI.Text Label;
@@ -32,6 +36,9 @@ public class TV : MonoBehaviour
         _currentScene = 0;
         _nextFire = 0;
         _meshRenderer = GetComponent<MeshRenderer>();
+        //_kafaToLeftPosition = _kafaToLeft.transform.position;
+        //_kafaToRightPosition = _kafaToRight.transform.position;
+        //_kafaDownwardsPosition = _kafaDownwards.transform.position;
         GestureManager.Instance.SwipeEvent += OnSwipeEvent;
     }
 
