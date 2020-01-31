@@ -17,7 +17,9 @@ public class TV : MonoBehaviour
     private MeshRenderer _meshRenderer;
     [SerializeField] private GameObject _pointLight;
     [SerializeField] private GameObject _screenNoise;
-    [SerializeField] private GameObject _kafa;
+    [SerializeField] private GameObject _kafaToLeft, _kafaToRight, _kafaDownwards;
+    SwipeDirection neededDirection;
+    //SwipeDirection neededDirection;
 
     void Start()
     {
@@ -38,59 +40,110 @@ public class TV : MonoBehaviour
                 _screenNoise.SetActive(true);
             if (!_calledNow)
             {
-                Debug.Log("NOW!");
+                int directionNumber = Random.Range(2, 5);
+                neededDirection = (SwipeDirection)directionNumber;
+                Debug.Log("NOW! " + neededDirection.ToString());
                 _pointLight.SetActive(true);
                 _calledNow = true;
             }
             if (Time.time > (_nextFire + _fireMaximumTime))
             {
-                Debug.LogError("You Lose!");
-                _pointLight.SetActive(false);
-                _gameOver = true;
+                GameOver();
             }
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                Kafa();
-                if (_currentScene < _tvScenes.Length)
-                {
-                    if(Time.time <= _nextFire + _fireRelevantTime)
-                    {
-                        Debug.Log("current scene is " + _tvScenes[_currentScene]);
-                    }
-                    else
-                    {
-                        Debug.Log("It's too late! current scene is " + _tvScenes[_currentScene]);
-                    }
-                    _meshRenderer.material.color = _tvScenes[_currentScene];
-                    _pointLight.SetActive(false);
-                    _currentScene++;
-                    _fireRate = Random.Range(_fireRateMin, _fireRateMax);
-                    _nextFire = Time.time + _fireRate;
-                    _calledNow = false;
-                }
-                else
-                {
-                    Debug.Log("You Won!");
-                }
+                KafaToTheRight();
+                SceneCalculation(SwipeDirection.RIGHT);
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                KafaToTheLeft();
+                SceneCalculation(SwipeDirection.LEFT);
+            }
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                KafaDownwards();
+                SceneCalculation(SwipeDirection.DOWN);
             }
         }
     }
 
-    private void Kafa()
+    private void SceneCalculation(SwipeDirection direction)
     {
-        if (!_kafa.activeSelf)
+        if(neededDirection == direction)
+        {
+            if (_currentScene < _tvScenes.Length)
+            {
+                if (Time.time <= _nextFire + _fireRelevantTime)
+                {
+                    Debug.Log("current scene is " + _tvScenes[_currentScene]);
+                }
+                else
+                {
+                    Debug.Log("It's too late! current scene is " + _tvScenes[_currentScene]);
+                }
+                _meshRenderer.material.color = _tvScenes[_currentScene];
+                _pointLight.SetActive(false);
+                _currentScene++;
+                _fireRate = Random.Range(_fireRateMin, _fireRateMax);
+                _nextFire = Time.time + _fireRate;
+                _calledNow = false;
+            }
+            else
+            {
+                Debug.Log("You Won!");
+            }
+        }
+        else
+        {
+            GameOver();
+            Debug.Log("wrong move! " + direction.ToString());
+        }
+        
+    }
+
+    private void KafaToTheLeft()
+    {
+        if (!_kafaToLeft.activeSelf)
         {
             Debug.Log("kafa routine is called");
             _screenNoise.SetActive(false);
-            StartCoroutine(KafaAppear());
+            StartCoroutine(KafaAppear(_kafaToLeft));
         }  
     }
 
-    IEnumerator KafaAppear()
+    private void GameOver()
     {
-        _kafa.SetActive(true);
+        Debug.LogError("You Lose!");
+        _pointLight.SetActive(false);
+        _gameOver = true;
+    }
+
+    private void KafaToTheRight()
+    {
+        if (!_kafaToRight.activeSelf)
+        {
+            Debug.Log("kafa routine is called");
+            _screenNoise.SetActive(false);
+            StartCoroutine(KafaAppear(_kafaToRight));
+        }
+    }
+
+    private void KafaDownwards()
+    {
+        if (!_kafaDownwards.activeSelf)
+        {
+            Debug.Log("kafa routine is called");
+            _screenNoise.SetActive(false);
+            StartCoroutine(KafaAppear(_kafaDownwards));
+        }
+    }
+
+    IEnumerator KafaAppear(GameObject kafaGraphic)
+    {
+        kafaGraphic.SetActive(true);
         yield return new WaitForSeconds(0.3f);
-        _kafa.SetActive(false);
+        kafaGraphic.SetActive(false);
     }
 
 }
