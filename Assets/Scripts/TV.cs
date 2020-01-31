@@ -20,6 +20,7 @@ public class TV : MonoBehaviour
     private MeshRenderer _meshRenderer;
     private float _nextFire = 0f;
     private SwipeDirection _neededDirection;
+    private AudioSource _audio;
     //Vector3 _kafaToLeftPosition, _kafaToRightPosition, _kafaDownwardsPosition;
     //Vector3 _kafaToLeftEndposition = new Vector3(5.74f, 2.489f, 0);
     //Vector3 _kafaToRightEndposition = new Vector3(-6.299f, 2.489f, 0);
@@ -32,6 +33,7 @@ public class TV : MonoBehaviour
 
     void Start()
     {
+        _audio = GetComponent<AudioSource>();
         _gameOver = false;
         _currentScene = 0;
         _nextFire = 0;
@@ -135,6 +137,7 @@ public class TV : MonoBehaviour
             else
             {
                 Debug.Log("You Won!");
+                Label.text = "";
                 _gameOver = true;
             }
         }
@@ -142,6 +145,7 @@ public class TV : MonoBehaviour
         {
             GameOver();
             Debug.Log("wrong move! " + direction.ToString());
+            Label.text = "";
         }
     }
 
@@ -179,6 +183,10 @@ public class TV : MonoBehaviour
         }
     }
 
+    public void PlayBoom()
+    {
+        _audio.Play();
+    }
     
 
     IEnumerator KafaAppear(GameObject kafaGraphic)
@@ -186,7 +194,7 @@ public class TV : MonoBehaviour
         kafaGraphic.SetActive(true);
         if (kafaGraphic.GetComponent<Animator>() != null)
             kafaGraphic.GetComponent<Animator>().Play("Kafa");
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.45f);
         kafaGraphic.SetActive(false);
     }
 
