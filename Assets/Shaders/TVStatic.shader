@@ -20,6 +20,11 @@ Shader "Custom/TVStatic"
 
     SubShader
     {
+        Tags {"Queue" = "Transparent" "RenderType" = "Transparent" }
+        LOD 100
+        ZWrite Off
+        Blend SrcAlpha OneMinusSrcAlpha
+
         Pass
         {
             CGPROGRAM
@@ -103,9 +108,9 @@ Shader "Custom/TVStatic"
                  fixed4 color = tex2D(_MainTex, i.uv);
                  fixed4 snow = fixed4(stat.xyz, 1.0);
 
-                 if (/*i.uv.x > 0.75 &&*/ _Direction == 4)  // right
+                 if (i.uv.x > 0.75 && _Direction == 4)  // right
                  {
-                     return snow*(i.uv.x * color);
+                     return fixed4(stat.xyz, i.uv.x);
                  }
                  if (i.uv.x < 0.25 && _Direction == 3)  // left
                  {

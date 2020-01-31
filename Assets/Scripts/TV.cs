@@ -15,6 +15,7 @@ public class TV : MonoBehaviour
     [SerializeField] private GameObject _gameOverText;
     [SerializeField] private GameObject _kafaToLeft, _kafaToRight, _kafaDownwards;
     [SerializeField] private VideoPlayer _videoPlayer;
+    [SerializeField] private AudioSource _audioSource;
     private bool _calledNow = false;
     private bool _gameOver = false;
     private MeshRenderer _meshRenderer;
@@ -46,6 +47,7 @@ public class TV : MonoBehaviour
 
     private void OnSwipeEvent(object source, GestureEventArgs e)
     {
+        Handheld.Vibrate();
         SceneCalculation(e.Direction);
     }
 
@@ -87,11 +89,6 @@ public class TV : MonoBehaviour
         GestureManager.Instance.SwipeEvent -= OnSwipeEvent;
     }
 
-    private void AndroidInput()
-    {
-
-    }
-
     private void WindowsInput()
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -125,8 +122,7 @@ public class TV : MonoBehaviour
                 {
                     Debug.Log("It's too late! current scene is " + _tvScenes.Scenes[_currentScene]);
                 }
-                _videoPlayer.clip = _tvScenes.Scenes[_currentScene].VideoFile;
-                _currentScene++;
+                PlayNextTVScene();
                 _timeBetweenScenes = Random.Range(_minTimeBetweenScenes, _maxTimeBetweenScenes);
                 _nextFire = Time.time + _timeBetweenScenes;
                 _calledNow = false;
@@ -147,6 +143,13 @@ public class TV : MonoBehaviour
             Debug.Log("wrong move! " + direction.ToString());
             Label.text = "";
         }
+    }
+
+    private void PlayNextTVScene()
+    {
+        _currentScene++;
+        _videoPlayer.clip = _tvScenes.Scenes[_currentScene].VideoFile;
+        _audioSource.PlayOneShot(_tvScenes.Scenes[_currentScene].AudioFile);
     }
 
     private void KafaToTheLeft()

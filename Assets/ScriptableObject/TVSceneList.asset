@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Scenes:
   - VideoFile: {fileID: 32900000, guid: ea2474d1bd0e7db4a9bd50763b4b7f5a, type: 3}
-    AudioFile: {fileID: 0}
+    AudioFile: {fileID: 8300000, guid: 2a33e9f7d442e4a4d969d3d2b6cee7f3, type: 3}
   - VideoFile: {fileID: 32900000, guid: bf1ed95cc8ec7244cb9ab411caf229a9, type: 3}
-    AudioFile: {fileID: 0}
+    AudioFile: {fileID: 8300000, guid: 70aef467c3585c645a88e7a38f23f6c5, type: 3}
   - VideoFile: {fileID: 32900000, guid: a500c02f523c0654dbd8d80fb7e66d1a, type: 3}
-    AudioFile: {fileID: 0}
+    AudioFile: {fileID: 8300000, guid: f87251b96aee0c746a5918e5a6d9fab9, type: 3}
   - VideoFile: {fileID: 32900000, guid: 7003c2460f6a5f6479139c49bb75c4e2, type: 3}
     AudioFile: {fileID: 0}
   - VideoFile: {fileID: 32900000, guid: 1521d2b9835bfe14484728630d83253b, type: 3}
-    AudioFile: {fileID: 0}
+    AudioFile: {fileID: 8300000, guid: f410d08bd8bd7084eabb2283cc91db73, type: 3}
   - VideoFile: {fileID: 32900000, guid: 3fd89db61b0c7084599da30f016ee9d0, type: 3}
     AudioFile: {fileID: 0}
   - VideoFile: {fileID: 32900000, guid: 4107f6576479c5e4684ddddb0612e311, type: 3}
