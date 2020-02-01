@@ -23,6 +23,7 @@ public class IntroController : MonoBehaviour
 
     public void OnStartClicked()
     {
+        GameObject.Find("Main Camera").GetComponent<MainMenu>().StopMusic();
         SceneManager.LoadScene(1);
     }
 }

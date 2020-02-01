@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{b54ea6c3-dbb5-46fe-a5ec-a4b9a492a4b2}">
+		<property name="assetPath">
+			<value>GameMusic/TVSmashMenu110BPM-001.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>13.090907029478458</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{cb0b6333-8a36-4668-9a37-ccc198159bcb}</destination>
+		</relationship>
+	</object>
+</objects>
