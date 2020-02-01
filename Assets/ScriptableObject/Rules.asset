@@ -16,4 +16,4 @@ MonoBehaviour:
   _startingHitLoseThreshold: 4
   _startingMinTimeBetweenScenes: 3
   _startingMaxTimeBetweenScenes: 5
-  _difficultyIncrease: 0.1
+  _difficultyIncrease: 0.2

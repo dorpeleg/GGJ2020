@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
+using Random = UnityEngine.Random;
 
 public class TV : MonoBehaviour
 {
@@ -23,6 +25,16 @@ public class TV : MonoBehaviour
     private float _currenTimeBetweenScenes;
 
     private const string ShaderKeyword = "_Direction";
+    private DateTime _startTime;
+
+    private float GameTime
+    {
+        get
+        {
+            var timePassed = DateTime.UtcNow - _startTime;
+            return (float)timePassed.TotalSeconds;
+        }
+    }
 
     void Start()
     {
@@ -36,6 +48,7 @@ public class TV : MonoBehaviour
         _rules.Initialize();
         _currenTimeBetweenScenes = _rules.GetTimeBetweenScenes();
         GestureManager.Instance.SwipeEvent += OnSwipeEvent;
+        _startTime = DateTime.UtcNow;
 
         _hitGraphic = new Dictionary<SwipeDirection, GameObject>
         {
@@ -54,9 +67,9 @@ public class TV : MonoBehaviour
 
     void Update()
     {
-        if(Time.time > _nextFire && !_gameOver)
+        if(GameTime > _nextFire && !_gameOver)
         {
-            if (Time.time > _nextFire + _rules.HitGoodThreshold)
+            if (GameTime > _nextFire + _rules.HitGoodThreshold)
             {
                 FMODUnity.RuntimeManager.StudioSystem.setParameterByName("NOISE", 75f);
                 // TODO: bad hit
@@ -70,7 +83,7 @@ public class TV : MonoBehaviour
                 UpdateTVOverlay(directionNumber);
                 _calledNow = true;
             }
-            if (Time.time > (_nextFire + _rules.HitLoseThreshold))
+            if (GameTime > (_nextFire + _rules.HitLoseThreshold))
             {
                 GameOver();
             }
@@ -106,7 +119,7 @@ public class TV : MonoBehaviour
         PlayKafaAnimation(direction);
         if(_neededDirection == direction)
         {
-            if (Time.time <= _nextFire + _rules.HitGoodThreshold)
+            if (GameTime <= _nextFire + _rules.HitGoodThreshold)
             {
                 Debug.Log("current scene is " + _tvScenes.Scenes[_currentScene]);
             }
@@ -117,7 +130,7 @@ public class TV : MonoBehaviour
             _rules.IncreaseDifficulty();
             PlayNextTVScene();
             _currenTimeBetweenScenes = _rules.GetTimeBetweenScenes();
-            _nextFire = Time.time + _currenTimeBetweenScenes;
+            _nextFire = GameTime + _currenTimeBetweenScenes;
             _calledNow = false;
             Debug.Log("NEW ROUND");
             UpdateTVOverlay(0);
