@@ -367,6 +367,7 @@ GameObject:
   - component: {fileID: 477422603}
   - component: {fileID: 477422605}
   - component: {fileID: 477422604}
+  - component: {fileID: 477422606}
   m_Layer: 5
   m_Name: TapToStart
   m_TagString: Untagged
@@ -429,6 +430,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 477422602}
   m_CullTransparentMesh: 0
+--- !u!111 &477422606
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477422602}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: cbae6a6dfd666df41a4a55837bae1fcb, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: cbae6a6dfd666df41a4a55837bae1fcb, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &796307222
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class TV : MonoBehaviour
@@ -202,5 +203,10 @@ public class TV : MonoBehaviour
         }
         yield return new WaitForSeconds(0.45f);
         kafaGraphic.SetActive(false);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(1);
     }
 }
