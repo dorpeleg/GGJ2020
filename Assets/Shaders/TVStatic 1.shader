@@ -120,6 +120,10 @@ Shader "Custom/TVStatic1"
                      {
                          return fixed4(stat.xyz, 0.6-i.uv.y);
                      }
+                     if (i.uv.y > 0.5 && _Direction == 1)   // up
+                     {
+                         return fixed4(stat.xyz, i.uv.y - 0.3);
+                     }
                      if (_Direction == 10)  // lose
                      {
                          return snow;

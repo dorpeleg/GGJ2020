@@ -80,7 +80,7 @@ public class TV : MonoBehaviour
             }
             if (!_calledNow)
             {
-                int directionNumber = Random.Range(2, 5);
+                int directionNumber = Random.Range(1, 5);
                 _neededDirection = (SwipeDirection)directionNumber;
                 Debug.Log("NOW! " + _neededDirection.ToString());
                 FMODUnity.RuntimeManager.StudioSystem.setParameterByName("NOISE", 40f);
@@ -115,6 +115,10 @@ public class TV : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             SceneCalculation(SwipeDirection.DOWN);
+        }
+        else if(Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            SceneCalculation(SwipeDirection.UP);
         }
     }
 
