@@ -61,17 +61,19 @@ public class GestureManager : MonoBehaviour
                     break;
                 case TouchPhase.Ended:
 					// Report that the touch has ended when it ends
-					var swipeDir = GetSwipeDirection();
+					var swipeDir = GetSwipeDirection(touch.deltaPosition);
+					if (swipeDir == SwipeDirection.NONE) return;
 					SwipeEvent.Invoke(this, new GestureEventArgs(swipeDir));
                     break;
             }
 		}
     }
 	
-	private SwipeDirection GetSwipeDirection()
+	private SwipeDirection GetSwipeDirection(Vector2 delta)
 	{
 		if (Mathf.Abs(_direction.x) > Mathf.Abs(_direction.y))
 		{
+			if (delta.x < 1) return SwipeDirection.NONE;
 			if (_direction.x > 0)
 			{
 				return SwipeDirection.RIGHT;
@@ -83,6 +85,7 @@ public class GestureManager : MonoBehaviour
 		}
 		else
 		{
+			if (delta.y < 1) return SwipeDirection.NONE;
 			if (_direction.y > 0)
 			{
 				return SwipeDirection.UP;

@@ -18,6 +18,7 @@ public class TV : MonoBehaviour
     [SerializeField] private string _hitSounds;
     [SerializeField] private Text _scoreLabel;
     [SerializeField] private Shake _shake;
+    [SerializeField] private GameObject _restartButton;
 
     private FMOD.Studio.EventInstance _tvAudio;
     private Dictionary<SwipeDirection, GameObject> _hitGraphic;
@@ -66,7 +67,6 @@ public class TV : MonoBehaviour
 
     private void OnSwipeEvent(object source, GestureEventArgs e)
     {
-        Handheld.Vibrate();
         SceneCalculation(e.Direction);
     }
 
@@ -161,10 +161,10 @@ public class TV : MonoBehaviour
 
     private void PlayNextTVScene()
     {
-        var newScene = Random.Range(0, _tvScenes.Scenes.Count - 1);
+        var newScene = Random.Range(0, _tvScenes.Scenes.Count);
         while(newScene == _currentScene)
         {
-            newScene = Random.Range(0, _tvScenes.Scenes.Count - 1);
+            newScene = Random.Range(0, _tvScenes.Scenes.Count);
         }
         _currentScene = newScene;
         _videoPlayer.clip = _tvScenes.Scenes[_currentScene].VideoFile;
@@ -184,6 +184,7 @@ public class TV : MonoBehaviour
         UpdateTVOverlay(10);
         _gameOver = true;
         _gameOverObject.SetActive(true);
+        StartCoroutine(GameOverFlow());
     }
 
     private void PlayKafaAnimation(SwipeDirection direction)
@@ -209,10 +210,17 @@ public class TV : MonoBehaviour
         }
         yield return new WaitForSeconds(0.1f);
         _shake.enabled = true;
+        Handheld.Vibrate();
         yield return new WaitForSeconds(0.1f);
         _shake.enabled = false;
         yield return new WaitForSeconds(0.1f);
         kafaGraphic.SetActive(false);    
+    }
+
+    private IEnumerator GameOverFlow()
+    {
+        yield return new WaitForSeconds(3);
+        _restartButton.SetActive(true);
     }
 
     public void RestartGame()
