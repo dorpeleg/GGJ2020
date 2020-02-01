@@ -12,8 +12,8 @@ public class TV : MonoBehaviour
     [SerializeField] private VideoPlayer _videoPlayer;
     [SerializeField] private MeshRenderer _snowMeshRenderer;
     [SerializeField] private string _hitSounds;
-    FMOD.Studio.EventInstance tvAudio;
 
+    private FMOD.Studio.EventInstance _tvAudio;
     private Dictionary<SwipeDirection, GameObject> _hitGraphic;
     private int _currentScene = 0;
     private bool _calledNow = false;
@@ -26,9 +26,10 @@ public class TV : MonoBehaviour
 
     void Start()
     {
+        PlayNextTVScene();
         string eventPath = _tvScenes.Scenes[_currentScene].AudioEvent;
-        tvAudio = FMODUnity.RuntimeManager.CreateInstance(eventPath);
-        tvAudio.start();
+        _tvAudio = FMODUnity.RuntimeManager.CreateInstance(eventPath);
+        _tvAudio.start();
         _gameOver = false;
         _currentScene = 0;
         _nextFire = 0;
@@ -141,9 +142,9 @@ public class TV : MonoBehaviour
         _currentScene = newScene;
         _videoPlayer.clip = _tvScenes.Scenes[_currentScene].VideoFile;
         string eventPath = _tvScenes.Scenes[_currentScene].AudioEvent;
-        tvAudio.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-        tvAudio = FMODUnity.RuntimeManager.CreateInstance(eventPath);
-        tvAudio.start();
+        _tvAudio.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _tvAudio = FMODUnity.RuntimeManager.CreateInstance(eventPath);
+        _tvAudio.start();
     }
 
     private void GameOver()
