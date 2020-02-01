@@ -57,6 +57,7 @@ public class TV : MonoBehaviour
         {
             if (Time.time > _nextFire + _rules.HitGoodThreshold)
             {
+                FMODUnity.RuntimeManager.StudioSystem.setParameterByName("NOISE", 75f);
                 // TODO: bad hit
             }
             if (!_calledNow)
@@ -64,6 +65,7 @@ public class TV : MonoBehaviour
                 int directionNumber = Random.Range(2, 5);
                 _neededDirection = (SwipeDirection)directionNumber;
                 Debug.Log("NOW! " + _neededDirection.ToString());
+                FMODUnity.RuntimeManager.StudioSystem.setParameterByName("NOISE", 40f);
                 UpdateTVOverlay(directionNumber);
                 _calledNow = true;
             }
@@ -144,11 +146,14 @@ public class TV : MonoBehaviour
         tvAudio.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         tvAudio = FMODUnity.RuntimeManager.CreateInstance(eventPath);
         tvAudio.start();
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("NOISE", 0);
     }
 
     private void GameOver()
     {
         Debug.LogError("You Lose!");
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("NOISE", 100);
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("GameOver", 1);
         UpdateTVOverlay(10);
         _gameOver = true;
         _gameOverText.SetActive(true);
