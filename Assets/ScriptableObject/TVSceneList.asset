@@ -31,5 +31,13 @@ MonoBehaviour:
     AudioEvent: event:/NYPD
   - VideoFile: {fileID: 32900000, guid: ab484007e1003874a952ea87d281a27f, type: 3}
     AudioEvent: event:/Psyco
-  - VideoFile: {fileID: 32900000, guid: 45164fc6493a40341bbcc4e4eec8034c, type: 3}
-    AudioEvent: event:/Scarface
+  - VideoFile: {fileID: 32900000, guid: d74c4ac65ed95ce44a1bbc96fba0935c, type: 3}
+    AudioEvent: event:/Dialouge
+  - VideoFile: {fileID: 32900000, guid: 95aed73429814444892543cad5323049, type: 3}
+    AudioEvent: event:/Picard
+  - VideoFile: {fileID: 32900000, guid: 27ec84a37617c4e40a0dc94d1be07db4, type: 3}
+    AudioEvent: event:/Riddim_dubstep_Meme_Live_Set
+  - VideoFile: {fileID: 32900000, guid: dd5c9f263390fdc4fbed48b8129a8157, type: 3}
+    AudioEvent: event:/uRaWiZaRd
+  - VideoFile: {fileID: 32900000, guid: d201b00b881db62408b740c0accd9049, type: 3}
+    AudioEvent: event:/PickleSurprise
