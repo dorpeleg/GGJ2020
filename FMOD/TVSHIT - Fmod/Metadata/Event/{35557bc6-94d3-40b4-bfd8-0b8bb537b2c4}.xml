@@ -5,7 +5,7 @@
 			<value>Indian Dance</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{2514f1c3-0a4d-4466-8a84-4f304770e08c}</destination>
@@ -57,7 +57,7 @@
 			<destination>{8b34578d-c702-4a2f-bdbb-8ac167ea256c}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{1e919248-5d61-4e5d-a629-6629141df19d}</destination>
+			<destination>{9dfcb322-c914-45a0-8fa5-32dfd9c90999}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{81e674b3-b85f-44b0-8d47-a149599019a2}" />
@@ -190,7 +190,6 @@
 	<object class="MixerBusEffectChain" id="{96151fcb-096f-477f-ab56-30f7681fb9a6}">
 		<relationship name="effects">
 			<destination>{2eeb075c-898e-4441-9607-ba7b2ded82ae}</destination>
-			<destination>{ac34a108-a2a3-4cba-988a-f7e29d92b95f}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{b556de90-52bc-4193-8048-64cb534beeee}" />
@@ -216,7 +215,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{c9aa4cfc-9c49-469c-8b7c-d7d846f64bb6}" />
 	<object class="MixerBusFader" id="{2eeb075c-898e-4441-9607-ba7b2ded82ae}" />
-	<object class="SpatialiserEffect" id="{ac34a108-a2a3-4cba-988a-f7e29d92b95f}" />
 	<object class="MixerBusFader" id="{4922ad36-21cd-42b6-a542-f16913cfe985}" />
 	<object class="AutomationCurve" id="{1b824f61-943a-4858-88fd-baa956eb3de6}">
 		<relationship name="parameter">

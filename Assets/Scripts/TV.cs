@@ -10,9 +10,9 @@ public class TV : MonoBehaviour
     [SerializeField] private GameObject _gameOverText;
     [SerializeField] private GameObject _kafaToLeft, _kafaToRight, _kafaDownwards, _kafaUpwards;
     [SerializeField] private VideoPlayer _videoPlayer;
-    [SerializeField] private AudioSource _audioSource;
     [SerializeField] private MeshRenderer _snowMeshRenderer;
-    [SerializeField] private AudioClip[] _hitSounds;
+    [SerializeField] private string _hitSounds;
+    FMOD.Studio.EventInstance tvAudio;
 
     private Dictionary<SwipeDirection, GameObject> _hitGraphic;
     private int _currentScene = 0;
@@ -20,14 +20,15 @@ public class TV : MonoBehaviour
     private bool _gameOver = false;
     private float _nextFire = 0f;
     private SwipeDirection _neededDirection;
-    private AudioSource _audio;
     private float _currenTimeBetweenScenes;
 
     private const string ShaderKeyword = "_Direction";
 
     void Start()
     {
-        _audio = GetComponent<AudioSource>();
+        string eventPath = _tvScenes.Scenes[_currentScene].AudioEvent;
+        tvAudio = FMODUnity.RuntimeManager.CreateInstance(eventPath);
+        tvAudio.start();
         _gameOver = false;
         _currentScene = 0;
         _nextFire = 0;
@@ -139,8 +140,10 @@ public class TV : MonoBehaviour
         }
         _currentScene = newScene;
         _videoPlayer.clip = _tvScenes.Scenes[_currentScene].VideoFile;
-        _audioSource.Stop();
-        _audioSource.PlayOneShot(_tvScenes.Scenes[_currentScene].AudioFile);
+        string eventPath = _tvScenes.Scenes[_currentScene].AudioEvent;
+        tvAudio.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        tvAudio = FMODUnity.RuntimeManager.CreateInstance(eventPath);
+        tvAudio.start();
     }
 
     private void GameOver()
@@ -162,8 +165,7 @@ public class TV : MonoBehaviour
 
     public void PlayHit()
     {
-        var index = Random.Range(0, _hitSounds.Length - 1);
-        //_audio.PlayOneShot(_hitSounds[index]);
+        FMODUnity.RuntimeManager.PlayOneShot(_hitSounds);
     }
 
     private IEnumerator KafaAppear(GameObject kafaGraphic)

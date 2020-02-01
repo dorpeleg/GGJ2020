@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startingHitGoodThreshold: 3
   _startingHitLoseThreshold: 3
-  _startingMinTimeBetweenScenes: 1
+  _startingMinTimeBetweenScenes: 3
   _startingMaxTimeBetweenScenes: 5
   _difficultyIncrease: 0.1

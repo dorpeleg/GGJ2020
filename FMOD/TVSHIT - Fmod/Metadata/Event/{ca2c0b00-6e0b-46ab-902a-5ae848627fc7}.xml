@@ -5,7 +5,7 @@
 			<value>Psyco</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{2514f1c3-0a4d-4466-8a84-4f304770e08c}</destination>
@@ -57,7 +57,7 @@
 			<destination>{0cc2d486-5017-42f1-a45b-72d3b30545e2}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{1e919248-5d61-4e5d-a629-6629141df19d}</destination>
+			<destination>{9dfcb322-c914-45a0-8fa5-32dfd9c90999}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{add4030c-2182-4855-b4c4-ead6eacb4fa0}" />
@@ -181,7 +181,6 @@
 	<object class="MixerBusEffectChain" id="{505ab3e9-fcb1-4061-90b9-0be0ddcec9fa}">
 		<relationship name="effects">
 			<destination>{fd9b1fd4-caf7-4dcf-a287-09b102a3a6e3}</destination>
-			<destination>{a6361b48-c41c-48fb-a6af-a0a04867d842}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{0ebc2c2e-dbfe-4c86-bc5a-3af68520e75b}" />
@@ -207,7 +206,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{0f72dfcf-ee37-44da-8709-5b397d1a6296}" />
 	<object class="MixerBusFader" id="{fd9b1fd4-caf7-4dcf-a287-09b102a3a6e3}" />
-	<object class="SpatialiserEffect" id="{a6361b48-c41c-48fb-a6af-a0a04867d842}" />
 	<object class="MixerBusFader" id="{58c8ad0f-d4ce-4e9d-b6b0-13c1c775b7c6}" />
 	<object class="AutomationCurve" id="{a5434fb1-323a-40d2-b98d-85044eff7553}">
 		<relationship name="parameter">

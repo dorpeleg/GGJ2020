@@ -5,7 +5,7 @@
 			<value>African Dance</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{2514f1c3-0a4d-4466-8a84-4f304770e08c}</destination>
@@ -57,7 +57,7 @@
 			<destination>{90e18955-6f5a-4098-bd94-2965c425d653}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{1e919248-5d61-4e5d-a629-6629141df19d}</destination>
+			<destination>{9dfcb322-c914-45a0-8fa5-32dfd9c90999}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{e4f2c6c6-3cd5-46b2-98c6-57ad33ee6a57}" />
@@ -184,7 +184,6 @@
 	<object class="MixerBusEffectChain" id="{fa410a84-1c7c-447c-b872-81cc1d185326}">
 		<relationship name="effects">
 			<destination>{70c02068-3e13-431a-acbc-f777b0209b2b}</destination>
-			<destination>{a3dddb2a-7a84-4b6e-bddb-bffc6230b4e6}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{8833cda0-c01e-406b-8b88-f242b9e8c284}" />
@@ -210,7 +209,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{f32354e9-6074-47ba-a9f0-bd0c9544af31}" />
 	<object class="MixerBusFader" id="{70c02068-3e13-431a-acbc-f777b0209b2b}" />
-	<object class="SpatialiserEffect" id="{a3dddb2a-7a84-4b6e-bddb-bffc6230b4e6}" />
 	<object class="MixerBusFader" id="{91df3f07-df60-4506-bfb6-90a57bb10074}" />
 	<object class="AutomationCurve" id="{2ad101ee-f86c-4007-bd2f-b8f38f8b1fc6}">
 		<relationship name="parameter">
