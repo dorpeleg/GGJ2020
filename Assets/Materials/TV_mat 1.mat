@@ -74,7 +74,7 @@ Material:
     - _Parallax: 0.02
     - _ResX: 100
     - _ResY: 200
-    - _ScaleWithZoom: 1
+    - _ScaleWithZoom: 0.1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1

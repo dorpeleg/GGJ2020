@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Video;
 using Random = UnityEngine.Random;
 
@@ -9,12 +10,14 @@ public class TV : MonoBehaviour
 {
     [SerializeField] private TVScenes _tvScenes;
     [SerializeField] private GameRules _rules;
-    [SerializeField] private GameObject _gameOverText;
+    [SerializeField] private GameObject _gameOverObject;
     [SerializeField] private GameObject _kafaToLeft, _kafaToRight, _kafaDownwards, _kafaUpwards;
     [SerializeField] private VideoPlayer _videoPlayer;
     [SerializeField] private MeshRenderer _snowMeshRenderer;
     [SerializeField] private string _hitSounds;
-    FMOD.Studio.EventInstance _tvAudio;
+    [SerializeField] private Text _scoreLabel;
+
+    private FMOD.Studio.EventInstance _tvAudio;
     private Dictionary<SwipeDirection, GameObject> _hitGraphic;
     private int _currentScene = 0;
     private bool _calledNow = false;
@@ -22,9 +25,10 @@ public class TV : MonoBehaviour
     private float _nextFire = 0f;
     private SwipeDirection _neededDirection;
     private float _currenTimeBetweenScenes;
+    private DateTime _startTime;
+    private int _currentScore = 0;
 
     private const string ShaderKeyword = "_Direction";
-    private DateTime _startTime;
 
     private float GameTime
     {
@@ -55,8 +59,6 @@ public class TV : MonoBehaviour
             {SwipeDirection.RIGHT, _kafaToRight },
             {SwipeDirection.UP, _kafaUpwards }
         };
-        //_tvAudio = FMODUnity.RuntimeManager.CreateInstance(eventPath);
-        //_tvAudio.start();
     }
 
     private void OnSwipeEvent(object source, GestureEventArgs e)
@@ -128,6 +130,9 @@ public class TV : MonoBehaviour
                 Debug.Log("It's too late! current scene is " + _tvScenes.Scenes[_currentScene]);
             }
             _rules.IncreaseDifficulty();
+            _currentScore++;
+            ScoreManager.SaveHighestScore(_currentScore);
+            _scoreLabel.text = _currentScore.ToString();
             PlayNextTVScene();
             _currenTimeBetweenScenes = _rules.GetTimeBetweenScenes();
             _nextFire = GameTime + _currenTimeBetweenScenes;
@@ -171,7 +176,7 @@ public class TV : MonoBehaviour
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("GameOver", 1);
         UpdateTVOverlay(10);
         _gameOver = true;
-        _gameOverText.SetActive(true);
+        _gameOverObject.SetActive(true);
     }
 
     private void PlayKafaAnimation(SwipeDirection direction)
