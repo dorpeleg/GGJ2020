@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23e42ca58f236749bd8fa2b6fc834a1, type: 3}
   m_Name: Rules
   m_EditorClassIdentifier: 
-  _startingHitGoodThreshold: 3
-  _startingHitLoseThreshold: 3
+  _startingHitGoodThreshold: 2
+  _startingHitLoseThreshold: 4
   _startingMinTimeBetweenScenes: 3
   _startingMaxTimeBetweenScenes: 5
   _difficultyIncrease: 0.1

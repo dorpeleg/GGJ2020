@@ -1,5 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8865159050870140122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/TVSHIT - Fmod/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637161561096628681
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &-8567177130310106475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,7 +33,7 @@ MonoBehaviour:
   Path: event:/Israeli News
   guid: 59dc2274d9ea58438e3c72c3a6f645fd
   Banks:
-  - {fileID: -343547172541903477}
+  - {fileID: 880840735322333079}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -41,6 +59,93 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-8374357869549294593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/TVSHIT - Fmod/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637161565835360688
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &-8360737455531432993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: TV Noise
+  m_EditorClassIdentifier: 
+  Name: TV Noise
+  Min: 0
+  Max: 10
+  Default: 0
+  Exists: 0
+--- !u!114 &-7037398478318421602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/TVSHIT - Fmod/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637161566651094497
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-6688852882860989114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: TV Noise
+  m_EditorClassIdentifier: 
+  Name: TV Noise
+  Min: 0
+  Max: 10
+  Default: 0
+  Exists: 1
+--- !u!114 &-6153233795438580311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: TV Noise
+  m_EditorClassIdentifier: 
+  Name: TV Noise
+  Min: 0
+  Max: 10
+  Default: 0
+  Exists: 0
 --- !u!114 &-5579205039425255721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,7 +161,7 @@ MonoBehaviour:
   Path: event:/70S
   guid: 3959dc7d13126842a354f6266684dcaa
   Banks:
-  - {fileID: -343547172541903477}
+  - {fileID: 880840735322333079}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -99,6 +204,24 @@ MonoBehaviour:
   Max: 10
   Default: 0
   Exists: 0
+--- !u!114 &-3141194570136817527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/TVSHIT - Fmod/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637161566110938819
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &-1724906000033511303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +237,7 @@ MonoBehaviour:
   Path: event:/NYPD
   guid: e7b938941c2fd645bb585ae827e53553
   Banks:
-  - {fileID: -343547172541903477}
+  - {fileID: 880840735322333079}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -175,6 +298,41 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-1009869100684940052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: TV Noise
+  m_EditorClassIdentifier: 
+  Name: TV Noise
+  Min: 0
+  Max: 10
+  Default: 0
+  Exists: 0
+--- !u!114 &-574086744560907879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/TVSHIT - Fmod/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637161561760932973
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &-343547172541903477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,7 +366,7 @@ MonoBehaviour:
   Path: event:/Cartoon Dance
   guid: 93f36291c8fc2648986f4352bf609ed2
   Banks:
-  - {fileID: -343547172541903477}
+  - {fileID: 880840735322333079}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -230,7 +388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 6033642504584190986}
-  - {fileID: -343547172541903477}
+  - {fileID: 880840735322333079}
   EditorEvents:
   - {fileID: 4349171298935393927}
   - {fileID: 1296760761304237338}
@@ -245,13 +403,49 @@ MonoBehaviour:
   - {fileID: 3549930764399528583}
   - {fileID: 5743054555442962565}
   EditorParameters:
-  - {fileID: 7747854144907989708}
+  - {fileID: 6870447926527871457}
   MasterBanks:
-  - {fileID: -343547172541903477}
+  - {fileID: 880840735322333079}
   StringsBanks:
   - {fileID: 6033642504584190986}
-  stringsBankWriteTime: 637161557490368296
+  stringsBankWriteTime: 637161587760678817
   cacheVersion: 3
+--- !u!114 &708934891225209879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/TVSHIT - Fmod/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637161561422220279
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &880840735322333079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/TVSHIT - Fmod/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637161587760608882
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &1296760761304237338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,7 +461,7 @@ MonoBehaviour:
   Path: event:/African Dance
   guid: 29d064e190445c478de844f2106d6fd1
   Banks:
-  - {fileID: -343547172541903477}
+  - {fileID: 880840735322333079}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -307,14 +501,31 @@ MonoBehaviour:
   Path: event:/Default
   guid: 79bdd88ab454af4c9e81d5329a2c180f
   Banks:
-  - {fileID: -343547172541903477}
+  - {fileID: 880840735322333079}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 0
+  Length: 500
+--- !u!114 &3764027735757043133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: TV Noise
+  m_EditorClassIdentifier: 
+  Name: TV Noise
+  Min: 0
+  Max: 10
+  Default: 0
+  Exists: 0
 --- !u!114 &4084122589589528358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,6 +543,23 @@ MonoBehaviour:
   Max: 10
   Default: 0
   Exists: 1
+--- !u!114 &4286762368423533050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: TV Noise
+  m_EditorClassIdentifier: 
+  Name: TV Noise
+  Min: 0
+  Max: 10
+  Default: 0
+  Exists: 0
 --- !u!114 &4349171298935393927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,7 +575,7 @@ MonoBehaviour:
   Path: event:/Psyco
   guid: 000b2cca0b6eab46902a5ae848627fc7
   Banks:
-  - {fileID: -343547172541903477}
+  - {fileID: 880840735322333079}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -370,7 +598,7 @@ MonoBehaviour:
   Path: event:/HITS/HandHit
   guid: c3db436d070f5b428879b62f810d438b
   Banks:
-  - {fileID: -343547172541903477}
+  - {fileID: 880840735322333079}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -392,11 +620,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMOD/TVSHIT - Fmod/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637161557490368296
+  lastModified: 637161587760678817
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1256
+    Value: 1322
   Exists: 1
 --- !u!114 &6190410316998147943
 MonoBehaviour:
@@ -413,7 +641,7 @@ MonoBehaviour:
   Path: event:/Scarface
   guid: 43fac23582080f499b84e9eb058e996b
   Banks:
-  - {fileID: -343547172541903477}
+  - {fileID: 880840735322333079}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -421,6 +649,41 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 5727
+--- !u!114 &6870447926527871457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: NOISE
+  m_EditorClassIdentifier: 
+  Name: NOISE
+  Min: 0
+  Max: 10
+  Default: 0
+  Exists: 1
+--- !u!114 &7008891432629680983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/TVSHIT - Fmod/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637161561064174943
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &7362780877930819276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,7 +699,7 @@ MonoBehaviour:
   Path: event:/80S Dance
   guid: daa3f401cda5014195f2dd2b47f12bf0
   Banks:
-  - {fileID: -343547172541903477}
+  - {fileID: 880840735322333079}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -461,6 +724,24 @@ MonoBehaviour:
   Max: 10
   Default: 0
   Exists: 1
+--- !u!114 &8341197137075233417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/TVSHIT - Fmod/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637161586396504312
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &8445308454785606718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,7 +757,7 @@ MonoBehaviour:
   Path: event:/Indian Dance
   guid: c67b5535d394b440bfd80b8bb537b2c4
   Banks:
-  - {fileID: -343547172541903477}
+  - {fileID: 880840735322333079}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -484,6 +765,23 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 18133
+--- !u!114 &8890794227273727804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: TV Noise
+  m_EditorClassIdentifier: 
+  Name: TV Noise
+  Min: 0
+  Max: 10
+  Default: 0
+  Exists: 0
 --- !u!114 &9079106641916814660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -499,7 +797,7 @@ MonoBehaviour:
   Path: event:/Dracula
   guid: 9d9e1df1cbab184abda00fde2e21f33e
   Banks:
-  - {fileID: -343547172541903477}
+  - {fileID: 880840735322333079}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
