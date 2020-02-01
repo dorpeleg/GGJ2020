@@ -36,8 +36,8 @@ public class GameRules : ScriptableObject
         MaxTimeBetweenScenes -= _difficultyIncrease;
 
         if (HitGoodThreshold < 0.3f) HitGoodThreshold = 0.3f;
-        if (HitLoseThreshold < 1f) HitLoseThreshold = 1f;
-        if (MinTimeBetweenScenes < 0.5f) MinTimeBetweenScenes = 0.5f;
-        if (MaxTimeBetweenScenes < 1f) MaxTimeBetweenScenes = 1f;
+        if (HitLoseThreshold < 1f) HitLoseThreshold = 0.7f;
+        if (MinTimeBetweenScenes < 0.5f) MinTimeBetweenScenes = 0.3f;
+        if (MaxTimeBetweenScenes < 1f) MaxTimeBetweenScenes = 0.5f;
     }
 }
