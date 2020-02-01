@@ -14,8 +14,7 @@ public class TV : MonoBehaviour
     [SerializeField] private VideoPlayer _videoPlayer;
     [SerializeField] private MeshRenderer _snowMeshRenderer;
     [SerializeField] private string _hitSounds;
-
-    private FMOD.Studio.EventInstance _tvAudio;
+    FMOD.Studio.EventInstance _tvAudio;
     private Dictionary<SwipeDirection, GameObject> _hitGraphic;
     private int _currentScene = 0;
     private bool _calledNow = false;
@@ -40,8 +39,7 @@ public class TV : MonoBehaviour
     {
         PlayNextTVScene();
         string eventPath = _tvScenes.Scenes[_currentScene].AudioEvent;
-        _tvAudio = FMODUnity.RuntimeManager.CreateInstance(eventPath);
-        _tvAudio.start();
+        
         _gameOver = false;
         _currentScene = 0;
         _nextFire = 0;
@@ -57,6 +55,8 @@ public class TV : MonoBehaviour
             {SwipeDirection.RIGHT, _kafaToRight },
             {SwipeDirection.UP, _kafaUpwards }
         };
+        //_tvAudio = FMODUnity.RuntimeManager.CreateInstance(eventPath);
+        //_tvAudio.start();
     }
 
     private void OnSwipeEvent(object source, GestureEventArgs e)
@@ -156,8 +156,9 @@ public class TV : MonoBehaviour
         }
         _currentScene = newScene;
         _videoPlayer.clip = _tvScenes.Scenes[_currentScene].VideoFile;
-        string eventPath = _tvScenes.Scenes[_currentScene].AudioEvent;
         _tvAudio.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _tvAudio.release();
+        string eventPath = _tvScenes.Scenes[_currentScene].AudioEvent;
         _tvAudio = FMODUnity.RuntimeManager.CreateInstance(eventPath);
         _tvAudio.start();
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("NOISE", 0);
