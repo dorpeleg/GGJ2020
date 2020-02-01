@@ -42,6 +42,7 @@ public class TV : MonoBehaviour
 
     void Start()
     {
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("GameOver", 0, true);
         PlayNextTVScene();
         string eventPath = _tvScenes.Scenes[_currentScene].AudioEvent;
         
@@ -207,6 +208,8 @@ public class TV : MonoBehaviour
 
     public void RestartGame()
     {
+        _tvAudio.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _tvAudio.release();
         SceneManager.LoadScene(1);
     }
 }
