@@ -5,7 +5,7 @@
 			<value>Israeli News</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{2514f1c3-0a4d-4466-8a84-4f304770e08c}</destination>
@@ -57,7 +57,7 @@
 			<destination>{8d8d3e3c-9451-42d2-bbd6-72d4f716c868}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{1e919248-5d61-4e5d-a629-6629141df19d}</destination>
+			<destination>{9dfcb322-c914-45a0-8fa5-32dfd9c90999}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{f1b09298-0752-4de3-b048-60444b5cd074}" />
@@ -184,7 +184,6 @@
 	<object class="MixerBusEffectChain" id="{9ff7661d-8d2f-4054-bcf6-b0d4791792ba}">
 		<relationship name="effects">
 			<destination>{0b66171c-8d21-4269-a027-ad65391fc9f0}</destination>
-			<destination>{bd0e749a-246a-429d-a427-358b28e731d8}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{49184757-c694-4375-9dd2-5e5a99dbf240}" />
@@ -210,7 +209,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{3dd09141-1359-4e21-89b4-8ae46bccd26d}" />
 	<object class="MixerBusFader" id="{0b66171c-8d21-4269-a027-ad65391fc9f0}" />
-	<object class="SpatialiserEffect" id="{bd0e749a-246a-429d-a427-358b28e731d8}" />
 	<object class="MixerBusFader" id="{bb0c6a4f-2519-4dcf-9fa2-8cfb51de6f79}" />
 	<object class="AutomationCurve" id="{ffb5923b-fb5a-4059-b082-df523f7ebc04}">
 		<relationship name="parameter">

@@ -16,7 +16,9 @@ public class TV : MonoBehaviour
     [SerializeField] private VideoPlayer _videoPlayer;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private MeshRenderer _snowMeshRenderer;
-    [SerializeField] private AudioClip[] _hitSounds;
+    //[SerializeField] private string[] _hitSounds;
+    [SerializeField] private string _hitSounds;
+    FMOD.Studio.EventInstance tvAudio;
 
     private Dictionary<SwipeDirection, GameObject> _hitGraphic;
     private int _currentScene = 0;
@@ -30,7 +32,10 @@ public class TV : MonoBehaviour
 
     void Start()
     {
-        _audio = GetComponent<AudioSource>();
+        string eventPath = _tvScenes.Scenes[_currentScene].AudioEvent;
+        tvAudio = FMODUnity.RuntimeManager.CreateInstance(eventPath);
+        tvAudio.start();
+        //_audio = GetComponent<AudioSource>();
         _gameOver = false;
         _currentScene = 0;
         _nextFire = 0;
@@ -139,8 +144,12 @@ public class TV : MonoBehaviour
         }
         _currentScene = newScene;
         _videoPlayer.clip = _tvScenes.Scenes[_currentScene].VideoFile;
-        _audioSource.Stop();
-        _audioSource.PlayOneShot(_tvScenes.Scenes[_currentScene].AudioFile);
+        string eventPath = _tvScenes.Scenes[_currentScene].AudioEvent;
+        tvAudio.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        tvAudio = FMODUnity.RuntimeManager.CreateInstance(eventPath);
+        tvAudio.start();
+        //_audioSource.Stop();
+        //_audioSource.PlayOneShot(_tvScenes.Scenes[_currentScene].AudioFile);
     }
 
     private void GameOver()
@@ -162,8 +171,9 @@ public class TV : MonoBehaviour
 
     public void PlayHit()
     {
-        var index = Random.Range(0, _hitSounds.Length - 1);
-        _audio.PlayOneShot(_hitSounds[index]);
+        //var index = Random.Range(0, _hitSounds.Length - 1);
+        //_audio.PlayOneShot(_hitSounds[index]);
+        FMODUnity.RuntimeManager.PlayOneShot(_hitSounds);
     }
 
     private IEnumerator KafaAppear(GameObject kafaGraphic)

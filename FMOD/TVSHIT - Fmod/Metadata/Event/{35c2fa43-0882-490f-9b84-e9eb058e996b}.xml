@@ -5,7 +5,7 @@
 			<value>Scarface</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{2514f1c3-0a4d-4466-8a84-4f304770e08c}</destination>
@@ -57,7 +57,7 @@
 			<destination>{d62deb57-b2e3-429d-b54d-29622f566837}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{1e919248-5d61-4e5d-a629-6629141df19d}</destination>
+			<destination>{9dfcb322-c914-45a0-8fa5-32dfd9c90999}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{190d06d0-1b1a-49a9-9df1-80834e0b0481}" />
@@ -181,7 +181,6 @@
 	<object class="MixerBusEffectChain" id="{d59d51c5-77b7-4728-a3d2-c4e67cb721d4}">
 		<relationship name="effects">
 			<destination>{e485d20f-2c0f-417a-b689-7d876ae2c273}</destination>
-			<destination>{cb4dce62-c2ef-4919-b461-e452f8be435a}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{d8bf49c1-4107-4d21-8cd7-236c7b10bfc1}" />
@@ -207,7 +206,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{f3469ddf-fb38-4463-8103-4efbd219834f}" />
 	<object class="MixerBusFader" id="{e485d20f-2c0f-417a-b689-7d876ae2c273}" />
-	<object class="SpatialiserEffect" id="{cb4dce62-c2ef-4919-b461-e452f8be435a}" />
 	<object class="MixerBusFader" id="{ad7bb6cf-edff-4463-b957-2f3fdd806057}" />
 	<object class="AutomationCurve" id="{af4e7845-8d5a-4b7c-a104-acf22e6afd0c}">
 		<relationship name="parameter">

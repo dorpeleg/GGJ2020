@@ -5,7 +5,7 @@
 			<value>Cartoon Dance</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{2514f1c3-0a4d-4466-8a84-4f304770e08c}</destination>
@@ -57,7 +57,7 @@
 			<destination>{e51fd966-dbec-4839-8214-e6491cda604f}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{1e919248-5d61-4e5d-a629-6629141df19d}</destination>
+			<destination>{9dfcb322-c914-45a0-8fa5-32dfd9c90999}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{ec388399-c868-4ed6-8782-65cb89ad1813}" />
@@ -263,7 +263,6 @@
 	<object class="MixerBusEffectChain" id="{18867fe7-d783-4c06-94ba-c39ed88846c2}">
 		<relationship name="effects">
 			<destination>{710fb44d-a62b-4451-b268-0f9a932ddfdc}</destination>
-			<destination>{e3cfb334-1dca-4181-ac1c-5ef64773f50a}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{3b064ad0-70fb-4a9e-8369-544da800d7a0}" />
@@ -289,7 +288,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{8648d64d-ae41-4801-94c5-79e7618a21b3}" />
 	<object class="MixerBusFader" id="{710fb44d-a62b-4451-b268-0f9a932ddfdc}" />
-	<object class="SpatialiserEffect" id="{e3cfb334-1dca-4181-ac1c-5ef64773f50a}" />
 	<object class="MixerBusFader" id="{c57f27db-243c-4a8e-b405-e6f97ce6fbdb}" />
 	<object class="AutomationCurve" id="{4b182b68-0e6b-4386-9216-435242cbb9e3}">
 		<relationship name="parameter">

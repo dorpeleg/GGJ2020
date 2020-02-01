@@ -14,5 +14,5 @@ public class TVScenes : ScriptableObject
 public class VideoAudio
 {
     public VideoClip VideoFile;
-    public AudioClip AudioFile;
+    public string AudioEvent;
 }

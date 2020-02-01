@@ -5,7 +5,7 @@
 			<value>NYPD</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{2514f1c3-0a4d-4466-8a84-4f304770e08c}</destination>
@@ -57,7 +57,7 @@
 			<destination>{85addd09-4694-4386-b5ac-c7df14c2bd4e}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{1e919248-5d61-4e5d-a629-6629141df19d}</destination>
+			<destination>{9dfcb322-c914-45a0-8fa5-32dfd9c90999}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{f8d99a49-7ccc-4721-8dae-b0741bdca87f}" />
@@ -184,7 +184,6 @@
 	<object class="MixerBusEffectChain" id="{33605630-1ef4-4934-9d8f-0183f90983c6}">
 		<relationship name="effects">
 			<destination>{3fd25fce-ac60-4982-9936-7273c2b9445f}</destination>
-			<destination>{48141559-a3a8-4696-96ec-fd2c2aa3b2f5}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{5b5a855e-b17f-4b80-a060-ba458f003690}" />
@@ -210,7 +209,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{e2966f40-880e-48d5-881d-b13c4e4619c1}" />
 	<object class="MixerBusFader" id="{3fd25fce-ac60-4982-9936-7273c2b9445f}" />
-	<object class="SpatialiserEffect" id="{48141559-a3a8-4696-96ec-fd2c2aa3b2f5}" />
 	<object class="MixerBusFader" id="{c7a4352d-4cf3-4e1f-896d-3685a9769578}" />
 	<object class="AutomationCurve" id="{d02a0a74-9b6b-4003-91be-4447abc9ee41}">
 		<relationship name="parameter">
