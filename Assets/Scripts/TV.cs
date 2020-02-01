@@ -47,9 +47,9 @@ public class TV : MonoBehaviour
         
         _gameOver = false;
         _currentScene = 0;
-        _nextFire = 0;
         _rules.Initialize();
         _currenTimeBetweenScenes = _rules.GetTimeBetweenScenes();
+        _nextFire = _currenTimeBetweenScenes;
         GestureManager.Instance.SwipeEvent += OnSwipeEvent;
         _startTime = DateTime.UtcNow;
 
