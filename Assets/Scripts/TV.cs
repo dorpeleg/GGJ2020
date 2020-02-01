@@ -18,6 +18,7 @@ public class TV : MonoBehaviour
     [SerializeField] private string _hitSounds;
     [SerializeField] private Text _scoreLabel;
     [SerializeField] private Shake _shake;
+    [SerializeField] private GameObject _restartButton;
 
     private FMOD.Studio.EventInstance _tvAudio;
     private Dictionary<SwipeDirection, GameObject> _hitGraphic;
@@ -183,6 +184,7 @@ public class TV : MonoBehaviour
         UpdateTVOverlay(10);
         _gameOver = true;
         _gameOverObject.SetActive(true);
+        StartCoroutine(GameOverFlow());
     }
 
     private void PlayKafaAnimation(SwipeDirection direction)
@@ -213,6 +215,12 @@ public class TV : MonoBehaviour
         _shake.enabled = false;
         yield return new WaitForSeconds(0.1f);
         kafaGraphic.SetActive(false);    
+    }
+
+    private IEnumerator GameOverFlow()
+    {
+        yield return new WaitForSeconds(3);
+        _restartButton.SetActive(true);
     }
 
     public void RestartGame()
