@@ -156,7 +156,7 @@ public class TV : MonoBehaviour
 
     private void PlayKafaAnimation(SwipeDirection direction)
     {
-        if (!_kafaDownwards.activeSelf)
+        if (!_hitGraphic[direction].activeSelf)
         {
             Debug.Log("kafa routine is called");
             StartCoroutine(KafaAppear(_hitGraphic[direction]));
