@@ -41,3 +41,13 @@ MonoBehaviour:
     AudioEvent: event:/uRaWiZaRd
   - VideoFile: {fileID: 32900000, guid: d201b00b881db62408b740c0accd9049, type: 3}
     AudioEvent: event:/PickleSurprise
+  - VideoFile: {fileID: 32900000, guid: 570474d4dc120f248a3bc4a10a0862c6, type: 3}
+    AudioEvent: event:/Alien
+  - VideoFile: {fileID: 32900000, guid: ca015687c9e46e04fb624fd740aa0c21, type: 3}
+    AudioEvent: event:/Anime_Djent
+  - VideoFile: {fileID: 32900000, guid: 51b499d99f24f0f46b63beb24070381e, type: 3}
+    AudioEvent: event:/Jesus
+  - VideoFile: {fileID: 32900000, guid: 8c4159d045378254d9926e28b2bc06df, type: 3}
+    AudioEvent: event:/MyoWoman
+  - VideoFile: {fileID: 32900000, guid: e76abab0339d97843acd63a8e044549d, type: 3}
+    AudioEvent: event:/The_Terminator
