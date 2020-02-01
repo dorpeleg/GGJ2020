@@ -599,8 +599,8 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 4, y: 2.25}
+  m_DrawMode: 2
+  m_Size: {x: 10, y: 10}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -846,7 +846,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tvScenes: {fileID: 11400000, guid: 5c1a02a9656d91a429651a34251c172f, type: 2}
-  _currentScene: 0
   _hitGoodThreshold: 3
   _hitLoseThreshold: 3
   _minTimeBetweenScenes: 1
@@ -859,7 +858,6 @@ MonoBehaviour:
   _videoPlayer: {fileID: 622784280}
   _audioSource: {fileID: 1587191852}
   _snowMeshRenderer: {fileID: 1529499096}
-  Label: {fileID: 0}
 --- !u!82 &1587191852
 AudioSource:
   m_ObjectHideFlags: 0

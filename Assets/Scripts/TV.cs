@@ -12,11 +12,12 @@ public class TV : MonoBehaviour
     [SerializeField] private float _maxTimeBetweenScenes = 5f;
     [SerializeField] private float _timeBetweenScenes = 3f;
     [SerializeField] private GameObject _gameOverText;
-    [SerializeField] private GameObject _kafaToLeft, _kafaToRight, _kafaDownwards;
+    [SerializeField] private GameObject _kafaToLeft, _kafaToRight, _kafaDownwards, _kafaUpwards;
     [SerializeField] private VideoPlayer _videoPlayer;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private MeshRenderer _snowMeshRenderer;
 
+    private Dictionary<SwipeDirection, GameObject> _hitGraphic;
     private int _currentScene = 0;
     private bool _calledNow = false;
     private bool _gameOver = false;
@@ -33,6 +34,14 @@ public class TV : MonoBehaviour
         _currentScene = 0;
         _nextFire = 0;
         GestureManager.Instance.SwipeEvent += OnSwipeEvent;
+
+        _hitGraphic = new Dictionary<SwipeDirection, GameObject>
+        {
+            {SwipeDirection.DOWN, _kafaDownwards },
+            {SwipeDirection.LEFT, _kafaToLeft },
+            {SwipeDirection.RIGHT, _kafaToRight },
+            {SwipeDirection.UP, _kafaUpwards }
+        };
     }
 
     private void OnSwipeEvent(object source, GestureEventArgs e)
@@ -54,7 +63,7 @@ public class TV : MonoBehaviour
                 int directionNumber = Random.Range(2, 5);
                 _neededDirection = (SwipeDirection)directionNumber;
                 Debug.Log("NOW! " + _neededDirection.ToString());
-                _snowMeshRenderer.material.SetFloat(ShaderKeyword, directionNumber);
+                UpdateTVOverlay(directionNumber);
                 _calledNow = true;
             }
             if (Time.time > (_nextFire + _hitLoseThreshold))
@@ -76,23 +85,21 @@ public class TV : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            KafaToTheRight();
             SceneCalculation(SwipeDirection.RIGHT);
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            KafaToTheLeft();
             SceneCalculation(SwipeDirection.LEFT);
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            KafaDownwards();
             SceneCalculation(SwipeDirection.DOWN);
         }
     }
 
     private void SceneCalculation(SwipeDirection direction)
     {
+        PlayKafaAnimation(direction);
         if(_neededDirection == direction)
         {
             if (Time.time <= _nextFire + _hitGoodThreshold)
@@ -108,13 +115,18 @@ public class TV : MonoBehaviour
             _nextFire = Time.time + _timeBetweenScenes;
             _calledNow = false;
             Debug.Log("NEW ROUND");
-            _snowMeshRenderer.material.SetFloat(ShaderKeyword, 0);
+            UpdateTVOverlay(0);
         }
         else
         {
             GameOver();
             Debug.Log("wrong move! " + direction.ToString());
         }
+    }
+
+    private void UpdateTVOverlay(int value)
+    {
+        _snowMeshRenderer.material.SetFloat(ShaderKeyword, value);
     }
 
     private void PlayNextTVScene()
@@ -130,37 +142,20 @@ public class TV : MonoBehaviour
         _audioSource.PlayOneShot(_tvScenes.Scenes[_currentScene].AudioFile);
     }
 
-    private void KafaToTheLeft()
-    {
-        if (!_kafaToLeft.activeSelf)
-        {
-            Debug.Log("kafa routine is called");
-            StartCoroutine(KafaAppear(_kafaToLeft));
-        }  
-    }
-
     private void GameOver()
     {
         Debug.LogError("You Lose!");
+        UpdateTVOverlay(10);
         _gameOver = true;
         _gameOverText.SetActive(true);
     }
 
-    private void KafaToTheRight()
-    {
-        if (!_kafaToRight.activeSelf)
-        {
-            Debug.Log("kafa routine is called");
-            StartCoroutine(KafaAppear(_kafaToRight));
-        }
-    }
-
-    private void KafaDownwards()
+    private void PlayKafaAnimation(SwipeDirection direction)
     {
         if (!_kafaDownwards.activeSelf)
         {
             Debug.Log("kafa routine is called");
-            StartCoroutine(KafaAppear(_kafaDownwards));
+            StartCoroutine(KafaAppear(_hitGraphic[direction]));
         }
     }
 
