@@ -6,11 +6,7 @@ using UnityEngine.Video;
 public class TV : MonoBehaviour
 {
     [SerializeField] private TVScenes _tvScenes;
-    [SerializeField] private float _hitGoodThreshold = 3f;
-    [SerializeField] private float _hitLoseThreshold = 3f;
-    [SerializeField] private float _minTimeBetweenScenes = 1f;
-    [SerializeField] private float _maxTimeBetweenScenes = 5f;
-    [SerializeField] private float _timeBetweenScenes = 3f;
+    [SerializeField] private GameRules _rules;
     [SerializeField] private GameObject _gameOverText;
     [SerializeField] private GameObject _kafaToLeft, _kafaToRight, _kafaDownwards, _kafaUpwards;
     [SerializeField] private VideoPlayer _videoPlayer;
@@ -25,6 +21,7 @@ public class TV : MonoBehaviour
     private float _nextFire = 0f;
     private SwipeDirection _neededDirection;
     private AudioSource _audio;
+    private float _currenTimeBetweenScenes;
 
     private const string ShaderKeyword = "_Direction";
 
@@ -34,6 +31,8 @@ public class TV : MonoBehaviour
         _gameOver = false;
         _currentScene = 0;
         _nextFire = 0;
+        _rules.Initialize();
+        _currenTimeBetweenScenes = _rules.GetTimeBetweenScenes();
         GestureManager.Instance.SwipeEvent += OnSwipeEvent;
 
         _hitGraphic = new Dictionary<SwipeDirection, GameObject>
@@ -55,7 +54,7 @@ public class TV : MonoBehaviour
     {
         if(Time.time > _nextFire && !_gameOver)
         {
-            if (Time.time > _nextFire + _hitGoodThreshold)
+            if (Time.time > _nextFire + _rules.HitGoodThreshold)
             {
                 // TODO: bad hit
             }
@@ -67,7 +66,7 @@ public class TV : MonoBehaviour
                 UpdateTVOverlay(directionNumber);
                 _calledNow = true;
             }
-            if (Time.time > (_nextFire + _hitLoseThreshold))
+            if (Time.time > (_nextFire + _rules.HitLoseThreshold))
             {
                 GameOver();
             }
@@ -103,7 +102,7 @@ public class TV : MonoBehaviour
         PlayKafaAnimation(direction);
         if(_neededDirection == direction)
         {
-            if (Time.time <= _nextFire + _hitGoodThreshold)
+            if (Time.time <= _nextFire + _rules.HitGoodThreshold)
             {
                 Debug.Log("current scene is " + _tvScenes.Scenes[_currentScene]);
             }
@@ -111,9 +110,10 @@ public class TV : MonoBehaviour
             {
                 Debug.Log("It's too late! current scene is " + _tvScenes.Scenes[_currentScene]);
             }
+            _rules.IncreaseDifficulty();
             PlayNextTVScene();
-            _timeBetweenScenes = Random.Range(_minTimeBetweenScenes, _maxTimeBetweenScenes);
-            _nextFire = Time.time + _timeBetweenScenes;
+            _currenTimeBetweenScenes = _rules.GetTimeBetweenScenes();
+            _nextFire = Time.time + _currenTimeBetweenScenes;
             _calledNow = false;
             Debug.Log("NEW ROUND");
             UpdateTVOverlay(0);
@@ -163,7 +163,7 @@ public class TV : MonoBehaviour
     public void PlayHit()
     {
         var index = Random.Range(0, _hitSounds.Length - 1);
-        _audio.PlayOneShot(_hitSounds[index]);
+        //_audio.PlayOneShot(_hitSounds[index]);
     }
 
     private IEnumerator KafaAppear(GameObject kafaGraphic)

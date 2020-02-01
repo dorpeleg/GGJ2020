@@ -815,11 +815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tvScenes: {fileID: 11400000, guid: 5c1a02a9656d91a429651a34251c172f, type: 2}
-  _hitGoodThreshold: 3
-  _hitLoseThreshold: 3
-  _minTimeBetweenScenes: 1
-  _maxTimeBetweenScenes: 5
-  _timeBetweenScenes: 3
+  _rules: {fileID: 11400000, guid: 9e1bdf4aa782e274cbcbe7316e2bb843, type: 2}
   _gameOverText: {fileID: 1244018969}
   _kafaToLeft: {fileID: 759801030}
   _kafaToRight: {fileID: 61805477}
