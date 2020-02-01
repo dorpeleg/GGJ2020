@@ -17,6 +17,7 @@ public class TV : MonoBehaviour
     [SerializeField] private MeshRenderer _snowMeshRenderer;
     [SerializeField] private string _hitSounds;
     [SerializeField] private Text _scoreLabel;
+    [SerializeField] private Shake _shake;
 
     private FMOD.Studio.EventInstance _tvAudio;
     private Dictionary<SwipeDirection, GameObject> _hitGraphic;
@@ -206,8 +207,12 @@ public class TV : MonoBehaviour
         {
             kafaGraphic.GetComponent<Animator>().Play("Kafa");
         }
-        yield return new WaitForSeconds(0.45f);
-        kafaGraphic.SetActive(false);
+        yield return new WaitForSeconds(0.1f);
+        _shake.enabled = true;
+        yield return new WaitForSeconds(0.1f);
+        _shake.enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        kafaGraphic.SetActive(false);    
     }
 
     public void RestartGame()
