@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{5c3ec61a-e8fe-45a0-a60b-e659ebb562ab}">
+		<property name="assetPath">
+			<value>Warm_it_Audio.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>7.3406666666666665</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{cb0b6333-8a36-4668-9a37-ccc198159bcb}</destination>
+		</relationship>
+	</object>
+</objects>
