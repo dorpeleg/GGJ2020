@@ -66,7 +66,6 @@ public class TV : MonoBehaviour
 
     private void OnSwipeEvent(object source, GestureEventArgs e)
     {
-        Handheld.Vibrate();
         SceneCalculation(e.Direction);
     }
 
@@ -161,10 +160,10 @@ public class TV : MonoBehaviour
 
     private void PlayNextTVScene()
     {
-        var newScene = Random.Range(0, _tvScenes.Scenes.Count - 1);
+        var newScene = Random.Range(0, _tvScenes.Scenes.Count);
         while(newScene == _currentScene)
         {
-            newScene = Random.Range(0, _tvScenes.Scenes.Count - 1);
+            newScene = Random.Range(0, _tvScenes.Scenes.Count);
         }
         _currentScene = newScene;
         _videoPlayer.clip = _tvScenes.Scenes[_currentScene].VideoFile;
@@ -209,6 +208,7 @@ public class TV : MonoBehaviour
         }
         yield return new WaitForSeconds(0.1f);
         _shake.enabled = true;
+        Handheld.Vibrate();
         yield return new WaitForSeconds(0.1f);
         _shake.enabled = false;
         yield return new WaitForSeconds(0.1f);
