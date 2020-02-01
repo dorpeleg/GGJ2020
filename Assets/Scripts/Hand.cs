@@ -20,6 +20,6 @@ public class Hand : MonoBehaviour
     public void PlayBoom()
     {
         Debug.Log("trying to play boom");
-        _tv.PlayBoom();
+        _tv.PlayHit();
     }
 }

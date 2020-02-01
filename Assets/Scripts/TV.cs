@@ -16,6 +16,7 @@ public class TV : MonoBehaviour
     [SerializeField] private VideoPlayer _videoPlayer;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private MeshRenderer _snowMeshRenderer;
+    [SerializeField] private AudioClip[] _hitSounds;
 
     private Dictionary<SwipeDirection, GameObject> _hitGraphic;
     private int _currentScene = 0;
@@ -159,12 +160,13 @@ public class TV : MonoBehaviour
         }
     }
 
-    public void PlayBoom()
+    public void PlayHit()
     {
-        _audio.Play();
+        var index = Random.Range(0, _hitSounds.Length - 1);
+        _audio.PlayOneShot(_hitSounds[index]);
     }
 
-    IEnumerator KafaAppear(GameObject kafaGraphic)
+    private IEnumerator KafaAppear(GameObject kafaGraphic)
     {
         kafaGraphic.SetActive(true);
         if (kafaGraphic.GetComponent<Animator>() != null)
