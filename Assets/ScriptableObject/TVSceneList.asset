@@ -51,3 +51,7 @@ MonoBehaviour:
     AudioEvent: event:/MyoWoman
   - VideoFile: {fileID: 32900000, guid: e76abab0339d97843acd63a8e044549d, type: 3}
     AudioEvent: event:/The_Terminator
+  - VideoFile: {fileID: 32900000, guid: 81ab9911b925d3b4ebce92f98d3540cd, type: 3}
+    AudioEvent: event:/Comm
+  - VideoFile: {fileID: 32900000, guid: f0a1646f4256ff446afef93962ce1c4a, type: 3}
+    AudioEvent: event:/Pringles

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{fda5dd84-dbc8-4d5c-b491-c9e4ac9b30d8}">
+		<property name="assetPath">
+			<value>Pringles.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>6.9402708333333329</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{cb0b6333-8a36-4668-9a37-ccc198159bcb}</destination>
+		</relationship>
+	</object>
+</objects>
